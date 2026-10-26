@@ -4,7 +4,7 @@
 
 ### Bootcamp de Analista de Dados Júnior · Generation Brasil
 
-**Primeiros passos em programação: variáveis, entrada e saída de dados e listas.**
+**Primeiros passos em programação: variáveis, entrada e saída de dados, listas e fluxos de controle.**
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Em%20Aprendizado-2ea44f?style=for-the-badge)
@@ -36,6 +36,12 @@ Este projeto foi criado durante o **Bootcamp de Analista de Dados da Generation 
 - `.remove()`: remover um item pelo valor.
 - `.pop()`: remover um item pelo índice.
 
+**5. Fluxos de Controle**
+- **Decisão** (`if`, `elif`, `else`): o programa escolhe um caminho de acordo com uma condição.
+- **Repetição com contador** (`for` + `range()`): repete um bloco um número definido de vezes.
+- **Repetição com condição** (`while`): repete um bloco enquanto uma condição for verdadeira.
+- **Operadores**: comparação (`==`, `!=`, `>`, `<`, `>=`, `<=`), lógicos (`and`, `or`, `not`) e resto da divisão (`%`).
+
 ---
 
 ## 💡 Exemplo Rápido
@@ -53,6 +59,96 @@ turma.pop(0)             # remove pelo índice
 
 print(turma)
 ```
+
+---
+
+## 🔀 Fluxos de Controle na Prática
+
+Exercícios que praticam decisão e repetição.
+
+### 1. Tabuada (`for` + `range`)
+
+Pede um número e mostra a tabuada de 1 a 10.
+
+```python
+numero = int(input("Tabuada de qual número? "))
+
+for i in range(1, 11):
+    print(f"{numero} x {i} = {numero * i}")
+```
+
+### 2. FizzBuzz (`for` + `if/elif/else` + `%`)
+
+Percorre os números de 1 a 100. Múltiplos de 3 viram `Fizz`, múltiplos de 5 viram `Buzz` e múltiplos de ambos viram `FizzBuzz`.
+
+```python
+for n in range(1, 101):
+    if n % 15 == 0:
+        print("FizzBuzz")
+    elif n % 3 == 0:
+        print("Fizz")
+    elif n % 5 == 0:
+        print("Buzz")
+    else:
+        print(n)
+```
+
+> 💡 A ordem importa: o teste do `15` vem primeiro, senão o `3` e o `5` "roubariam" o caso do `FizzBuzz`.
+
+### 3. Senha (`while`)
+
+Repete o pedido até o usuário digitar a senha correta.
+
+```python
+senha_correta = "python123"
+tentativa = ""
+
+while tentativa != senha_correta:
+    tentativa = input("Digite a senha: ")
+    if tentativa != senha_correta:
+        print("Senha incorreta. Tente novamente.")
+
+print("Acesso liberado!")
+```
+
+### 4. Notas (`if/elif/else`)
+
+Recebe duas notas, calcula a média e informa a situação do aluno.
+
+```python
+nota1 = float(input("Nota 1: "))
+nota2 = float(input("Nota 2: "))
+media = (nota1 + nota2) / 2
+
+print(f"Média: {media:.1f}")
+
+if media >= 7:
+    print("Aprovado")
+elif media >= 5:
+    print("Recuperação")
+else:
+    print("Reprovado")
+```
+
+### 5. Nomes Aprovados (listas + `for` + `if`)
+
+Guarda os alunos aprovados em uma lista e exibe o resultado no final.
+
+```python
+aprovados = []
+
+for i in range(3):
+    nome = input("Nome do aluno: ")
+    nota = float(input(f"Nota de {nome}: "))
+
+    if nota >= 7:
+        aprovados.append(nome)
+
+print("Alunos aprovados:", aprovados)
+print("Total de aprovados:", len(aprovados))
+```
+
+---
 
 ## 🐍 O Zen do Python
 
@@ -84,17 +180,24 @@ import this
 | If the implementation is easy to explain, it may be a good idea. | Se a implementação é fácil de explicar, pode ser uma boa ideia. |
 | Namespaces are one honking great idea -- let's do more of those! | Espaços de nomes são uma ótima ideia, vamos fazer mais deles! |
 
-## 📁 Arquivo de Prática
+## 📁 Arquivos de Prática
 
-- 🐍 `Turma.py`: script em Python usado para praticar variáveis, entrada e saída de dados e manipulação de listas.
+- 🐍 `Turma.py`: variáveis, entrada e saída de dados e manipulação de listas.
+- 🐍 `tabuada.py`: laço `for` com `range()`.
+- 🐍 `fizzbuzz.py`: `if/elif/else` com o operador `%`.
+- 🐍 `senha.py`: laço `while` com validação de entrada.
+- 🐍 `notas.py`: média e situação do aluno com `if/elif/else`.
+- 🐍 `aprovados.py`: listas combinadas com `for` e `if`.
 
 ## 🚀 Como executar
 
 Com o Python instalado, execute no terminal:
 
 ```bash
-# Rodar o arquivo de prática
+# Rodar um arquivo de prática (exemplo)
 python Turma.py
+python tabuada.py
+python fizzbuzz.py
 
 # Ativar o Zen do Python no terminal
 python -c "import this"
