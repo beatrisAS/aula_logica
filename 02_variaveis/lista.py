@@ -1,0 +1,13 @@
+lista = [
+    "Gabriel",
+    'Vinicius',
+    "Jussara",
+    "Pricilla",
+    "Josiane"
+    "Diogo"
+]
+
+print(lista)
+print(lista [3])
+lista.append("Felipe")
+print(lista)
