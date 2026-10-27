@@ -1,7 +1,17 @@
-senha = ""
+senha_correta = "turmaad05"
+tentativas = 0
+acertou = False
 
-while senha != "turmaad05":
+while tentativas < 3:
     senha = input("Digite a senha: ")
-    #print("Errrrrooooouuuu!\n")
+    tentativas += 1
 
-print("Acesso Liberado!")
+    if senha == senha_correta:
+        acertou = True
+        break
+    print("Errou!\n")
+
+if acertou:
+    print("Acesso Liberado!")
+else:
+    print ("Número de tentativas excedido. Acesso bloqueado!")
