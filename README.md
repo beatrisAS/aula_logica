@@ -4,7 +4,7 @@
 
 ### Bootcamp de Analista de Dados Júnior · Generation Brasil
 
-**Primeiros passos em programação: variáveis, entrada e saída de dados, listas e fluxos de controle.**
+**Primeiros passos em programação: variáveis, entrada e saída de dados, listas, funções, data e hora, cores e fluxos de controle.**
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Em%20Aprendizado-2ea44f?style=for-the-badge)
@@ -42,6 +42,18 @@ Este projeto foi criado durante o **Bootcamp de Analista de Dados da Generation 
 - **Repetição com condição** (`while`): repete um bloco enquanto uma condição for verdadeira.
 - **Operadores**: comparação (`==`, `!=`, `>`, `<`, `>=`, `<=`), lógicos (`and`, `or`, `not`) e resto da divisão (`%`).
 
+**6. Funções**
+- Blocos de código reutilizáveis, definidos com `def`.
+- Parâmetros permitem enviar informações para a função; `return` devolve um resultado.
+
+**7. Data e hora**
+- Uso do módulo `datetime` para consultar a data e a hora atuais.
+- Formatação de datas e horários com `strftime()`.
+
+**8. Cores no terminal**
+- Uso de códigos ANSI para colorir textos exibidos com `print()`.
+- O código de reset restaura a cor padrão depois da mensagem.
+
 ---
 
 ## 💡 Exemplo Rápido
@@ -58,6 +70,13 @@ turma.remove("Bruno")    # remove pelo valor
 turma.pop(0)             # remove pelo índice
 
 print(turma)
+
+# Função simples
+
+def saudacao(nome):
+    return f"Olá, {nome}!"
+
+print(saudacao("Ana"))
 ```
 
 ---
@@ -77,25 +96,7 @@ for i in range(1, 11):
     print(f"{numero} x {i} = {numero * i}")
 ```
 
-### 2. FizzBuzz (`for` + `if/elif/else` + `%`)
-
-Percorre os números de 1 a 100. Múltiplos de 3 viram `Fizz`, múltiplos de 5 viram `Buzz` e múltiplos de ambos viram `FizzBuzz`.
-
-```python
-for n in range(1, 101):
-    if n % 15 == 0:
-        print("FizzBuzz")
-    elif n % 3 == 0:
-        print("Fizz")
-    elif n % 5 == 0:
-        print("Buzz")
-    else:
-        print(n)
-```
-
-> 💡 A ordem importa: o teste do `15` vem primeiro, senão o `3` e o `5` "roubariam" o caso do `FizzBuzz`.
-
-### 3. Senha (`while`)
+### 2. Senha (`while`)
 
 Repete o pedido até o usuário digitar a senha correta.
 
@@ -111,7 +112,7 @@ while tentativa != senha_correta:
 print("Acesso liberado!")
 ```
 
-### 4. Notas (`if/elif/else`)
+### 3. Notas (`if/elif/else`)
 
 Recebe duas notas, calcula a média e informa a situação do aluno.
 
@@ -130,7 +131,7 @@ else:
     print("Reprovado")
 ```
 
-### 5. Nomes Aprovados (listas + `for` + `if`)
+### 4. Nomes Aprovados (listas + `for` + `if`)
 
 Guarda os alunos aprovados em uma lista e exibe o resultado no final.
 
@@ -146,6 +147,52 @@ for i in range(3):
 
 print("Alunos aprovados:", aprovados)
 print("Total de aprovados:", len(aprovados))
+```
+
+---
+
+## 🧩 Funções na Prática
+
+Uma função reúne instruções que podem ser chamadas sempre que necessário. Os parâmetros recebem valores e `return` devolve o resultado para o restante do programa.
+
+```python
+def calcular_media(nota1, nota2):
+    return (nota1 + nota2) / 2
+
+media = calcular_media(8.5, 7.0)
+print(f"Média: {media:.1f}")
+```
+
+---
+
+## 📅 Data e Hora na Prática
+
+O módulo `datetime` permite consultar a data e a hora atuais. Com `strftime()`, é possível escolher como elas serão exibidas. Neste exemplo, `%d/%m/%Y` representa dia/mês/ano e `%H:%M` representa hora e minuto.
+
+```python
+from datetime import datetime
+
+agora = datetime.now()
+data_formatada = agora.strftime("%d/%m/%Y")
+hora_formatada = agora.strftime("%H:%M")
+
+print(f"Data: {data_formatada}")
+print(f"Hora: {hora_formatada}")
+```
+
+---
+
+## 🎨 Cores no Terminal
+
+Códigos ANSI podem mudar a cor do texto em muitos terminais. `\033[32m`, por exemplo, inicia o verde, e `\033[0m` volta à cor padrão. O suporte pode variar conforme o terminal utilizado.
+
+```python
+VERDE = "\033[32m"
+VERMELHO = "\033[31m"
+RESET = "\033[0m"
+
+print(f"{VERDE}Operação concluída!{RESET}")
+print(f"{VERMELHO}Ocorreu um erro.{RESET}")
 ```
 
 ---
@@ -184,10 +231,12 @@ import this
 
 - 🐍 `Turma.py`: variáveis, entrada e saída de dados e manipulação de listas.
 - 🐍 `tabuada.py`: laço `for` com `range()`.
-- 🐍 `fizzbuzz.py`: `if/elif/else` com o operador `%`.
 - 🐍 `senha.py`: laço `while` com validação de entrada.
 - 🐍 `notas.py`: média e situação do aluno com `if/elif/else`.
 - 🐍 `aprovados.py`: listas combinadas com `for` e `if`.
+- 🐍 `funcoes.py`: criação e chamada de funções com parâmetros e `return`.
+- 🐍 `data_hora.py`: consulta e formatação de data e hora com `datetime`.
+- 🐍 `cores.py`: mensagens coloridas no terminal com códigos ANSI.
 
 ## 🚀 Como executar
 
@@ -197,7 +246,6 @@ Com o Python instalado, execute no terminal:
 # Rodar um arquivo de prática (exemplo)
 python Turma.py
 python tabuada.py
-python fizzbuzz.py
 
 # Ativar o Zen do Python no terminal
 python -c "import this"
